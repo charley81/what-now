@@ -1,13 +1,10 @@
 module.exports = {
   siteMetadata: {
     // edit below
-    title: `Gatsby Starter Personal Blog`,
-    author: `Gatsby`,
-    description: `A starter personal blog with styled components, dark mode, and Netlify CMS.`,
-    siteUrl: `https://gatsby-starter-blog-demo.netlify.com/`,
-    social: {
-      twitter: `gatsbyjs`,
-    },
+    title: `What Now Blog`,
+    author: `The Great Dev Co.`,
+    description: `A personal blog with styled components, dark mode, and Netlify CMS.`,
+    siteUrl: `https://wutnow.xyz/`
   },
   plugins: [
     `gatsby-plugin-netlify-cms`,
@@ -17,14 +14,14 @@ module.exports = {
     `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
     {
-      resolve: "gatsby-plugin-local-search",
+      resolve: 'gatsby-plugin-local-search',
       options: {
-        name: "blog",
-        engine: "flexsearch",
+        name: 'blog',
+        engine: 'flexsearch',
         engineOptions: {
-          encode: "icase",
-          tokenize: "forward",
-          async: false,
+          encode: 'icase',
+          tokenize: 'forward',
+          async: false
         },
         query: `
           {
@@ -43,9 +40,9 @@ module.exports = {
             }
           }
         `,
-        ref: "id",
-        index: ["title", "rawBody"],
-        store: ["id", "slug", "date", "title", "excerpt", "description"],
+        ref: 'id',
+        index: ['title', 'rawBody'],
+        store: ['id', 'slug', 'date', 'title', 'excerpt', 'description'],
         normalizer: ({ data }) =>
           data.allMdx.nodes.map(node => ({
             id: node.id,
@@ -54,9 +51,9 @@ module.exports = {
             excerpt: node.excerpt,
             title: node.frontmatter.title,
             description: node.frontmatter.description,
-            date: node.frontmatter.date,
-          })),
-      },
+            date: node.frontmatter.date
+          }))
+      }
     },
     `gatsby-plugin-feed-mdx`,
     `gatsby-plugin-root-import`,
@@ -64,52 +61,52 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/content/blog`,
-        name: `blog`,
-      },
+        name: `blog`
+      }
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/content/assets`,
-        name: `assets`,
-      },
+        name: `assets`
+      }
     },
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
-        extensions: [".mdx", ".md"],
+        extensions: ['.mdx', '.md'],
         gatsbyRemarkPlugins: [
           {
             resolve: `gatsby-remark-images`,
             options: {
-              maxWidth: 590,
-            },
+              maxWidth: 590
+            }
           },
           {
             resolve: `gatsby-remark-responsive-iframe`,
             options: {
-              wrapperStyle: `margin-bottom: 1.0725rem`,
-            },
+              wrapperStyle: `margin-bottom: 1.0725rem`
+            }
           },
           {
-            resolve: `gatsby-remark-vscode`,
+            resolve: `gatsby-remark-vscode`
           },
           {
-            resolve: `gatsby-remark-copy-linked-files`,
+            resolve: `gatsby-remark-copy-linked-files`
           },
           {
-            resolve: `gatsby-remark-smartypants`,
-          },
+            resolve: `gatsby-remark-smartypants`
+          }
         ],
-        plugins: [`gatsby-remark-images`],
-      },
+        plugins: [`gatsby-remark-images`]
+      }
     },
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
         // edit below
         // trackingId: `ADD YOUR TRACKING ID HERE`,
-      },
+      }
     },
     {
       resolve: `gatsby-plugin-manifest`,
@@ -121,14 +118,14 @@ module.exports = {
         theme_color: `#663399`,
         display: `minimal-ui`,
         // edit below
-        icon: `content/assets/gatsby-icon.png`,
-      },
+        icon: `content/assets/gatsby-icon.png`
+      }
     },
     {
       resolve: `gatsby-plugin-typography`,
       options: {
-        pathToConfigModule: `src/utils/typography`,
-      },
-    },
-  ],
+        pathToConfigModule: `src/utils/typography`
+      }
+    }
+  ]
 }
