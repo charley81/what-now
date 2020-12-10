@@ -3,6 +3,8 @@
     "flexsearch",
     "frontmatter",
     "iframe",
-    "merriweather"
+    "merriweather",
+    "opensearch",
+    "opensearchdescription"
   ]
 }
