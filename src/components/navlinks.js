@@ -5,11 +5,9 @@ import styled from 'styled-components'
 const NavLinks = () => {
   return (
     <>
-      <NavItem to="/">Home</NavItem>
-      <NavItem to="/about">About</NavItem>
-      <NavItem to="/projects">Projects</NavItem>
-      <NavItem to="/blog">Blog</NavItem>
+      <NavItem to="/">Blog</NavItem>
       <NavItem to="/contact">Contact</NavItem>
+      <NavItem to="/contact">Admin</NavItem>
     </>
   )
 }
