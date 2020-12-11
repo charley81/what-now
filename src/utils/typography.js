@@ -4,7 +4,7 @@ import Lincoln from 'typography-theme-lincoln'
 Lincoln.overrideThemeStyles = () => {
   return {
     a: {
-      // color: '#A3F7B5',
+      color: '#333',
       textShadow: 'none'
     }
   }
