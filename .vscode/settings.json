@@ -1,8 +1,13 @@
 {
   "cSpell.ignoreWords": [
+    "cpath",
+    "csvg",
     "flexsearch",
     "frontmatter",
     "iframe",
-    "merriweather"
+    "merriweather",
+    "navbox",
+    "opensearch",
+    "opensearchdescription"
   ]
 }
