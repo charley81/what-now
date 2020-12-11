@@ -122,9 +122,11 @@ module.exports = {
       }
     },
     {
-      resolve: `gatsby-plugin-typography`,
+      resolve: 'gatsby-plugin-web-font-loader',
       options: {
-        pathToConfigModule: `src/utils/typography`
+        google: {
+          families: ['Raleway', 'sans-serif']
+        }
       }
     }
   ]

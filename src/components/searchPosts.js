@@ -4,13 +4,11 @@ import styled from 'styled-components'
 import { useFlexSearch } from 'react-use-flexsearch'
 import * as queryString from 'query-string'
 
-import { rhythm } from '../utils/typography'
-
 const SearchBar = styled.div`
   display: flex;
   border: 1px solid #dfe1e5;
   border-radius: 10px;
-  margin: 0 auto ${rhythm(1)};
+  margin: 0 auto 1rem;
   width: 100%;
   height: 3rem;
   background: #fdfdfd;
@@ -54,7 +52,7 @@ const SearchedPosts = ({ results }) =>
         <div key={slug}>
           <h3
             style={{
-              marginBottom: rhythm(1 / 4)
+              marginBottom: '1rem'
             }}
           >
             <Link style={{ boxShadow: `none` }} to={`/blog${slug}`}>
@@ -84,7 +82,7 @@ const AllPosts = ({ posts }) => (
         <div key={node.fields.slug}>
           <h3
             style={{
-              marginBottom: rhythm(1 / 4)
+              marginBottom: '1rem'
             }}
           >
             <Link style={{ boxShadow: `none` }} to={`/blog${node.fields.slug}`}>
