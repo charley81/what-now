@@ -29,22 +29,35 @@ class Layout extends React.Component {
 
 const GlobalStyle = createGlobalStyle`
   :root {
-    --primaryColor: rgb(226,251,227);
+    --primaryColor: #586F7C;
+    --lightColor: #FFFFFF;
+    --darkColor: #122C34;
+  }
+
+  * {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
   }
 
   body {
     font-family: 'Raleway', sans-serif;
+    color: var(--darkColor);
+    background: var(--lightColor);
   }
 
   li {
     list-style: none;
   }
-`
 
+  a {
+    text-decoration: none;
+    color: var(--primaryColor);
+  }
+`
 const Wrapper = styled.div`
   min-height: 100vh;
 `
-
 const Footer = styled.footer`
   text-align: center;
   margin: 24px;

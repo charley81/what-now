@@ -4,41 +4,6 @@ import styled from 'styled-components'
 import { useFlexSearch } from 'react-use-flexsearch'
 import * as queryString from 'query-string'
 
-const SearchBar = styled.div`
-  display: flex;
-  border: 1px solid #dfe1e5;
-  border-radius: 10px;
-  margin: 0 auto 1rem;
-  width: 100%;
-  height: 3rem;
-  background: #fdfdfd;
-
-  svg {
-    margin: auto 1rem;
-    height: 20px;
-    width: 20px;
-    color: #9aa0a6;
-    fill: #9aa0a6;
-  }
-
-  input {
-    display: flex;
-    flex: 100%;
-    height: 100%;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
-      Roboto, 'Helvetica Neue', Arial, sans-serif;
-    font-size: 16px;
-    background-color: transparent;
-    border: none;
-    margin: 0;
-    padding: 0;
-    padding-right: 0.5rem;
-    color: rgb(55, 53, 47);
-    word-wrap: break-word;
-    outline: none;
-  }
-`
-
 const SearchedPosts = ({ results }) =>
   results.length > 0 ? (
     results.map(node => {
@@ -49,10 +14,10 @@ const SearchedPosts = ({ results }) =>
       const slug = node.slug
 
       return (
-        <div key={slug}>
+        <SearchedPostStyles key={slug}>
           <h3
             style={{
-              marginBottom: '1rem'
+              marginBottom: '0'
             }}
           >
             <Link style={{ boxShadow: `none` }} to={`/blog${slug}`}>
@@ -65,7 +30,7 @@ const SearchedPosts = ({ results }) =>
               __html: description || excerpt
             }}
           />
-        </div>
+        </SearchedPostStyles>
       )
     })
   ) : (
@@ -79,10 +44,10 @@ const AllPosts = ({ posts }) => (
     {posts.map(({ node }) => {
       const title = node.frontmatter.title || node.fields.slug
       return (
-        <div key={node.fields.slug}>
+        <PostStyles key={node.fields.slug}>
           <h3
             style={{
-              marginBottom: '1rem'
+              marginBottom: '0'
             }}
           >
             <Link style={{ boxShadow: `none` }} to={`/blog${node.fields.slug}`}>
@@ -95,7 +60,7 @@ const AllPosts = ({ posts }) => (
               __html: node.frontmatter.description || node.excerpt
             }}
           />
-        </div>
+        </PostStyles>
       )
     })}
   </div>
@@ -138,3 +103,57 @@ const SearchPosts = ({ posts, localSearchBlog, location, navigate }) => {
 }
 
 export default SearchPosts
+
+const SearchBar = styled.div`
+  display: flex;
+  border: 1px solid #dfe1e5;
+  border-radius: 10px;
+  margin: 0 auto 1rem;
+  width: 100%;
+  height: 3rem;
+  background: #fdfdfd;
+
+  svg {
+    margin: auto 1rem;
+    height: 20px;
+    width: 20px;
+    color: #9aa0a6;
+    fill: #9aa0a6;
+  }
+
+  input {
+    display: flex;
+    flex: 100%;
+    height: 100%;
+    font-family: 'Raleway', sans-serif;
+    font-size: 16px;
+    background-color: transparent;
+    border: none;
+    margin: 0;
+    padding: 0;
+    padding-right: 0.5rem;
+    color: rgb(55, 53, 47);
+    word-wrap: break-word;
+    outline: none;
+  }
+`
+
+const PostStyles = styled.div`
+  margin: 2rem 0;
+  padding-bottom: 1rem;
+  border-bottom: 1px dashed var(--primaryColor);
+
+  &:last-child {
+    border-bottom: none;
+  }
+`
+
+const SearchedPostStyles = styled.div`
+  margin: 2rem 0;
+  padding-bottom: 1rem;
+  border-bottom: 1px dashed var(--primaryColor);
+
+  &:last-child {
+    border-bottom: none;
+  }
+`
