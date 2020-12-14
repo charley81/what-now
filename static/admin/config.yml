@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: charley81/what-now
+  repo: irinaHarley/wut-now
   branch: main
 
 media_folder: content/assets
