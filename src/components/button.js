@@ -15,14 +15,13 @@ const ButtonWrapper = styled.button`
   cursor: pointer;
   text-transform: uppercase;
   letter-spacing: 2px;
-
-  background: ${props => props.props.background || 'black'};
-  color: ${props => props.props.color || 'rgb(255, 255, 255)'};
+  width: ${props => props.props.width};
+  background: ${props => props.props.background || 'var(--primaryColor)'};
+  color: ${props => props.props.color || '#FFFFFF'};
   font-size: ${props => props.props.fontSize || '15px'};
   font-weight: ${props => props.props.fontWeight || '600'};
-  border-radius: ${props => props.props.radius || '6px'};
-  margin-top: ${props => props.props.marginTop};
-  margin-bottom: ${props => props.props.marginBottom};
+  border-radius: ${props => props.props.radius || '3px'};
+  margin: ${props => props.props.margin};
 
   &:hover {
     box-shadow: inset 0 0 100px 100px rgba(255, 255, 255, 0.25);

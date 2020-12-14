@@ -1,43 +1,116 @@
-import React from 'react'
-import { Link } from 'gatsby'
+import React, { useState } from 'react'
+import Navlinks from './navlinks'
 import styled from 'styled-components'
+import Logo from './logo'
 
-const Navbar = () => (
-  <NavStyles>
-    <Link to="/">
-      <h1>wutNow</h1>
-    </Link>
+const Navbar = () => {
+  const [navOpen, setNavOpen] = useState(false)
 
-    <ul>
-      <Link to="/">
-        <li>Blog</li>
-      </Link>
-      <Link to="/contact">
-        <li>Contact</li>
-      </Link>
-      <Link to="/">
-        <li>Admin</li>
-      </Link>
-    </ul>
-  </NavStyles>
-)
+  return (
+    <Navigation>
+      <Logo />
+      <Toggle navOpen={navOpen} onClick={() => setNavOpen(!navOpen)}>
+        {navOpen ? <Hamburger open /> : <Hamburger />}
+      </Toggle>
+      {navOpen ? (
+        <Navbox>
+          <Navlinks />
+        </Navbox>
+      ) : (
+        <Navbox open>
+          <Navlinks />
+        </Navbox>
+      )}
+    </Navigation>
+  )
+}
 
 export default Navbar
 
-const NavStyles = styled.nav`
-  text-align: center;
+const Navigation = styled.nav`
+  height: 10vh;
+  display: flex;
+  background-color: var(--primaryColor);
+  position: relative;
+  justify-content: space-between;
+  text-transform: uppercase;
+  margin: 0 auto;
+  padding: 0 5vw;
+  z-index: 2;
+  align-self: center;
 
-  h1 {
-    margin: 0;
+  @media (max-width: 768px) {
+    position: sticky;
+    height: 8vh;
+    top: 0;
+    left: 0;
+    right: 0;
+    left: 0;
   }
+`
 
-  ul {
+const Toggle = styled.div`
+  display: none;
+  height: 100%;
+  cursor: pointer;
+  padding: 0 10vw;
+
+  @media (max-width: 768px) {
     display: flex;
-    justify-content: space-around;
-    margin: 0;
+  }
+`
+
+const Navbox = styled.div`
+  display: flex;
+  height: 100%;
+  justify-content: flex-end;
+  align-items: center;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    position: fixed;
+    width: 100%;
+    justify-content: flex-start;
+    padding-top: 10vh;
+    background-color: var(--primaryColor);
+    transition: all 0.3s ease-in;
+    top: 8vh;
+    left: ${props => (props.open ? '-100%' : '0')};
+
+    li {
+      margin: 1rem 0;
+    }
+  }
+`
+
+const Hamburger = styled.div`
+  background-color: var(--lightColor);
+  width: 30px;
+  height: 3px;
+  transition: all 0.3s linear;
+  align-self: center;
+  position: relative;
+  transform: ${props => (props.open ? 'rotate(-45deg)' : 'inherit')};
+
+  ::before,
+  ::after {
+    width: 30px;
+    height: 3px;
+    background-color: var(--lightColor);
+    content: '';
+    position: absolute;
+    transition: all 0.3s linear;
   }
 
-  li {
-    margin: 0;
+  ::before {
+    transform: ${props =>
+      props.open ? 'rotate(-90deg) translate(-10px, 0px)' : 'rotate(0deg)'};
+    top: -10px;
+  }
+
+  ::after {
+    opacity: ${props => (props.open ? '0' : '1')};
+    transform: ${props => (props.open ? 'rotate(90deg) ' : 'rotate(0deg)')};
+    top: 10px;
   }
 `
