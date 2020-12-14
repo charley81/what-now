@@ -57,9 +57,6 @@ const ContactStyles = styled.div`
     width: 100%;
     margin: 1rem 0;
     padding: 0.5rem;
-    outline: transparent;
-    border: transparent;
-    border-bottom: 1px solid var(--primaryColor);
     font-family: 'Raleway', sans-serif;
   }
 `

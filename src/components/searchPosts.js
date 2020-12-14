@@ -130,9 +130,10 @@ const SearchBar = styled.div`
   }
 `
 const PostStyles = styled.div`
-  margin: 2rem 0;
-  padding-bottom: 1rem;
-  ${'' /* border-bottom: 1px dashed var(--primaryColor); */}
+  margin: 1rem 0;
+  background: rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  border-radius: var(--borderRadius);
 
   &:last-child {
     border-bottom: none;
