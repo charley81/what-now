@@ -3,6 +3,7 @@ import Layout from '../components/layout'
 import Button from '../components/button'
 import styled from 'styled-components'
 import { Formik, Form, Field, ErrorMessage } from 'formik'
+import { navigate } from 'gatsby'
 
 const encode = data => {
   return Object.keys(data)
@@ -26,8 +27,8 @@ export default () => (
             body: encode({ 'form-name': 'contact-demo', ...values })
           })
             .then(() => {
-              alert('Success')
               actions.resetForm()
+              navigate('/success/')
             })
             .catch(() => {
               alert('Error')
