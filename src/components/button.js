@@ -17,12 +17,11 @@ const ButtonWrapper = styled.button`
   letter-spacing: 2px;
   width: ${props => props.props.width};
   background: ${props => props.props.background || 'var(--primaryColor)'};
-  color: ${props => props.props.color || 'rgb(255, 255, 255)'};
+  color: ${props => props.props.color || '#FFFFFF'};
   font-size: ${props => props.props.fontSize || '15px'};
   font-weight: ${props => props.props.fontWeight || '600'};
   border-radius: ${props => props.props.radius || '3px'};
-  margin-top: ${props => props.props.marginTop};
-  margin-bottom: ${props => props.props.marginBottom};
+  margin: ${props => props.props.margin};
 
   &:hover {
     box-shadow: inset 0 0 100px 100px rgba(255, 255, 255, 0.25);

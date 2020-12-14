@@ -30,7 +30,7 @@ export default Navlinks
 
 const NavItem = styled(Link)`
   text-decoration: none;
-  color: var(--primaryColor);
+  color: var(--lightColor);
   display: inline-block;
   white-space: nowrap;
   margin: 0 1vw;
@@ -38,7 +38,7 @@ const NavItem = styled(Link)`
   position: relative;
 
   a {
-    color: var(--primaryColor);
+    color: var(--lightColor);
 
     &:hover {
       color: var(--darkColor);

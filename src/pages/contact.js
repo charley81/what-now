@@ -2,23 +2,40 @@ import React from 'react'
 import Layout from '../components/layout'
 import Button from '../components/button'
 import styled from 'styled-components'
+import { Link } from 'gatsby'
 
 const contact = () => (
   <Layout>
     <ContactStyles>
       <h3>Contact Me</h3>
       <form>
-        <input type="text" name="name" placeholder="Enter name" />
-        <input type="email" name="email" placeholder="Enter email" />
-        <input type="text" name="subject" placeholder="Enter subject" />
-        <textarea
-          name="message"
-          id=""
-          cols="30"
-          rows="10"
-          placeholder="Enter message"
-        ></textarea>
-        <Button width="100%">Submit</Button>
+        <label>
+          <input type="text" name="name" placeholder="Enter name" required />
+        </label>
+        <label>
+          <input type="email" name="email" placeholder="Enter email" required />
+        </label>
+        <label>
+          <input
+            type="text"
+            name="subject"
+            placeholder="Enter subject"
+            required
+          />
+        </label>
+        <label>
+          <textarea
+            name="message"
+            id=""
+            cols="30"
+            rows="5"
+            placeholder="Enter message"
+            required
+          ></textarea>
+        </label>
+        <Link to="/success">
+          <Button width="100%">Submit</Button>
+        </Link>
       </form>
     </ContactStyles>
   </Layout>
@@ -43,5 +60,6 @@ const ContactStyles = styled.div`
     outline: transparent;
     border: transparent;
     border-bottom: 1px solid var(--primaryColor);
+    font-family: 'Raleway', sans-serif;
   }
 `

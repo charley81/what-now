@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { Link } from 'gatsby'
 import Navlinks from './navlinks'
 import styled from 'styled-components'
 import Logo from './logo'
@@ -31,11 +30,10 @@ export default Navbar
 const Navigation = styled.nav`
   height: 10vh;
   display: flex;
-  background-color: #fff;
+  background-color: var(--primaryColor);
   position: relative;
   justify-content: space-between;
   text-transform: uppercase;
-  border-bottom: 2px solid #33333320;
   margin: 0 auto;
   padding: 0 5vw;
   z-index: 2;
@@ -74,15 +72,19 @@ const Navbox = styled.div`
     width: 100%;
     justify-content: flex-start;
     padding-top: 10vh;
-    background-color: #fff;
+    background-color: var(--primaryColor);
     transition: all 0.3s ease-in;
     top: 8vh;
     left: ${props => (props.open ? '-100%' : '0')};
+
+    li {
+      margin: 1rem 0;
+    }
   }
 `
 
 const Hamburger = styled.div`
-  background-color: var(--primaryColor);
+  background-color: var(--lightColor);
   width: 30px;
   height: 3px;
   transition: all 0.3s linear;
@@ -94,7 +96,7 @@ const Hamburger = styled.div`
   ::after {
     width: 30px;
     height: 3px;
-    background-color: var(--primaryColor);
+    background-color: var(--lightColor);
     content: '';
     position: absolute;
     transition: all 0.3s linear;

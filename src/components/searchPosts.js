@@ -15,11 +15,7 @@ const SearchedPosts = ({ results }) =>
 
       return (
         <SearchedPostStyles key={slug}>
-          <h3
-            style={{
-              marginBottom: '0'
-            }}
-          >
+          <h3>
             <Link style={{ boxShadow: `none` }} to={`/blog${slug}`}>
               {title}
             </Link>
@@ -45,11 +41,7 @@ const AllPosts = ({ posts }) => (
       const title = node.frontmatter.title || node.fields.slug
       return (
         <PostStyles key={node.fields.slug}>
-          <h3
-            style={{
-              marginBottom: '0'
-            }}
-          >
+          <h3>
             <Link style={{ boxShadow: `none` }} to={`/blog${node.fields.slug}`}>
               {title}
             </Link>
@@ -108,7 +100,7 @@ const SearchBar = styled.div`
   display: flex;
   border: 1px solid #dfe1e5;
   border-radius: 10px;
-  margin: 0 auto 1rem;
+  margin: 1rem auto;
   width: 100%;
   height: 3rem;
   background: #fdfdfd;
@@ -126,7 +118,7 @@ const SearchBar = styled.div`
     flex: 100%;
     height: 100%;
     font-family: 'Raleway', sans-serif;
-    font-size: 16px;
+    font-size: 14px;
     background-color: transparent;
     border: none;
     margin: 0;
@@ -137,17 +129,15 @@ const SearchBar = styled.div`
     outline: none;
   }
 `
-
 const PostStyles = styled.div`
   margin: 2rem 0;
   padding-bottom: 1rem;
-  border-bottom: 1px dashed var(--primaryColor);
+  ${'' /* border-bottom: 1px dashed var(--primaryColor); */}
 
   &:last-child {
     border-bottom: none;
   }
 `
-
 const SearchedPostStyles = styled.div`
   margin: 2rem 0;
   padding-bottom: 1rem;
