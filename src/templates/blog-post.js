@@ -3,6 +3,7 @@ import { Link, graphql } from 'gatsby'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
+import styled from 'styled-components'
 
 class BlogPostTemplate extends React.Component {
   render() {
@@ -25,10 +26,13 @@ class BlogPostTemplate extends React.Component {
         >
           {post.frontmatter.date}
         </p>
-        <MDXRenderer>{post.body}</MDXRenderer>
+        <PostStyles>
+          <MDXRenderer>{post.body}</MDXRenderer>
+        </PostStyles>
+
         <hr
           style={{
-            marginBottom: '1rem'
+            margin: '1rem 0'
           }}
         />
 
@@ -81,5 +85,14 @@ export const pageQuery = graphql`
         description
       }
     }
+  }
+`
+const PostStyles = styled.div`
+  p {
+    margin: 1rem 0;
+  }
+
+  a.gatsby-resp-image-link {
+    height: 20rem;
   }
 `
