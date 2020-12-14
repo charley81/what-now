@@ -15,17 +15,15 @@ const SearchedPosts = ({ results }) =>
 
       return (
         <SearchedPostStyles key={slug}>
-          <h3>
-            <Link style={{ boxShadow: `none` }} to={`/blog${slug}`}>
-              {title}
-            </Link>
-          </h3>
-          <small>{date}</small>
-          <p
-            dangerouslySetInnerHTML={{
-              __html: description || excerpt
-            }}
-          />
+          <Link to={`/blog${slug}`}>
+            <h3>{title}</h3>
+            <small>{date}</small>
+            <p
+              dangerouslySetInnerHTML={{
+                __html: description || excerpt
+              }}
+            />
+          </Link>
         </SearchedPostStyles>
       )
     })
@@ -41,17 +39,15 @@ const AllPosts = ({ posts }) => (
       const title = node.frontmatter.title || node.fields.slug
       return (
         <PostStyles key={node.fields.slug}>
-          <h3>
-            <Link style={{ boxShadow: `none` }} to={`/blog${node.fields.slug}`}>
-              {title}
-            </Link>
-          </h3>
-          <small>{node.frontmatter.date}</small>
-          <p
-            dangerouslySetInnerHTML={{
-              __html: node.frontmatter.description || node.excerpt
-            }}
-          />
+          <Link style={{ boxShadow: `none` }} to={`/blog${node.fields.slug}`}>
+            <h3>{title}</h3>
+            <small>{node.frontmatter.date}</small>
+            <p
+              dangerouslySetInnerHTML={{
+                __html: node.frontmatter.description || node.excerpt
+              }}
+            />
+          </Link>
         </PostStyles>
       )
     })}
@@ -134,17 +130,10 @@ const PostStyles = styled.div`
   background: rgba(0, 0, 0, 0.1);
   padding: 1rem;
   border-radius: var(--borderRadius);
-
-  &:last-child {
-    border-bottom: none;
-  }
 `
 const SearchedPostStyles = styled.div`
-  margin: 2rem 0;
-  padding-bottom: 1rem;
-  border-bottom: 1px dashed var(--primaryColor);
-
-  &:last-child {
-    border-bottom: none;
-  }
+  margin: 1rem 0;
+  background: rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  border-radius: var(--borderRadius);
 `
