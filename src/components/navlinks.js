@@ -13,11 +13,7 @@ const Navlinks = () => {
       </NavItem>
       <NavItem>
         <li>
-          <a
-            href="http://localhost:8000/admin"
-            target="_blank"
-            rel="noreferrer"
-          >
+          <a href="https://wutnow.xyz/admin" target="_blank" rel="noreferrer">
             Admin
           </a>
         </li>
